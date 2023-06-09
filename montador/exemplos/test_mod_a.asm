@@ -1,0 +1,11 @@
+MOD_A:  BEGIN
+EXTERN: MOD_B
+        PUBLIC FINISH
+        PUBLIC N1
+        SECTION TEXT
+        INPUT N1
+        JMP MOD_B
+FINISH: STOP
+        SECTION DATA
+N1:     SPACE
+        END
