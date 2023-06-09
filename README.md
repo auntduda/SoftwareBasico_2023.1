@@ -2,9 +2,25 @@
 
 ## Alunos
 
-- Davi Jesus de Almeida Paturi - 
+- Davi Jesus de Almeida Paturi - 200016784
 - Maria Eduarda Carvalho Santos - 190092556
 
 ## Trabalho 1
 
-O trabalho 1 da disciplina de Software Básico consiste em desenvolver o montador e o ligador do assembly inventado, apresentado em aula. Utilizando a linguagem C++ de programação, [aqui é onde a gente vai escrever depois o que fez nesse trabalho](https://github.com/auntduda)
+O trabalho 1 da disciplina de Software Básico consiste em desenvolver o montador e o ligador do assembly inventado, apresentado em aula. Utilizando a linguagem C++ de programação.
+
+### **Montador**
+Para compilar o montador basta executar o seguinte comando
+```
+g++ ./montador.cpp -o ./montador.o
+```
+Para rodar o montador basta executar o comando abaixo
+```
+./montador arquivo1 arquivo2 [...]
+```
+A saida sera um arquivo `.obj` se houver as diretivas BEGIN e END no arquivo.
+Caso contrário, a saída será um arquivo `.exc`.
+
+### **Ligador**
+
+[aqui é onde a gente vai escrever depois o que fez nesse trabalho](https://github.com/auntduda)
