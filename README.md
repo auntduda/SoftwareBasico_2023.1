@@ -25,6 +25,7 @@ Caso contrário, a saída será um arquivo `.exc`.
 
 - Os erros gerados pelo montador são indexados pelas linhas respectivas ao arquivo pré-processado e não ao arquivo original.
 - O mnemônico da instrução de multiplicação utilizado foi o `MUL`.
+- Para gerar os arquivos pré-processados, basta adicionar a flag `-pp` na chamada do programa. Exemplo: `./montador.o -pp arquivo1 arquivo2 [...]`. Os arquivos gerados terão o nome do arquivo `.asm` original com `_pp` adicionado ao final (Ex.: `arquivo1_pp.asm`).
 
 ## **Ligador**
 
