@@ -21,7 +21,7 @@ struct simbolo {
 
 map<string, simbolo> tabelaSimbolos;
 map<string, int> tabelaDefinicoes;
-vector<pair<string, int>> tabelaUso;
+map<string, vector<int>> tabelaUso;
 vector<int> listaRelativos;
 
 bool salvarPP = false;
@@ -341,9 +341,7 @@ void montar (string fileName)
 
         // Gera tabela de uso
         if (kv.second.external && kv.second.listaPendencias.size()) {
-            for (unsigned int i = 0; i < kv.second.listaPendencias.size(); i++) {
-                tabelaUso.push_back({ kv.first, kv.second.listaPendencias[i] });
-            }
+            tabelaUso[kv.first] = kv.second.listaPendencias;
         }
 
         // Gera tabela de definicoes
@@ -360,8 +358,12 @@ void montar (string fileName)
 
         // Tabela de uso
         output << "USO" << endl;
-        for (auto uso: tabelaUso) {
-            output << uso.first << " " << uso.second << endl;
+        for (const auto& kv : tabelaUso) {
+            output << kv.first << " ";
+            for (auto l: kv.second) {
+                output << l << " ";
+            }
+            output << endl;
         }
 
         // Tabela de definicoes

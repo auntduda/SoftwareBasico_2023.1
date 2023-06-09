@@ -9,18 +9,24 @@
 
 O trabalho 1 da disciplina de Software Básico consiste em desenvolver o montador e o ligador do assembly inventado, apresentado em aula. Utilizando a linguagem C++ de programação.
 
-### **Montador**
-Para compilar o montador basta executar o seguinte comando
+## **Montador**
+- Para compilar o montador basta executar o seguinte comando
 ```
 g++ ./montador.cpp -o ./montador.o
 ```
-Para rodar o montador basta executar o comando abaixo
+- Para rodar o montador basta executar o comando abaixo
 ```
-./montador arquivo1 arquivo2 [...]
+./montador.o arquivo1 arquivo2 [...]
 ```
-A saida sera um arquivo `.obj` se houver as diretivas BEGIN e END no arquivo.
+- A saída será um arquivo `.obj` se houver as diretivas BEGIN e END no arquivo.
 Caso contrário, a saída será um arquivo `.exc`.
 
-### **Ligador**
+### Observações
+
+- Os erros gerados pelo montador são indexados pelas linhas respectivas ao arquivo pré-processado e não ao arquivo original.
+- O mnemônico da instrução de multiplicação utilizado foi o `MUL`.
+- Para gerar os arquivos pré-processados, basta adicionar a flag `-pp` na chamada do programa. Exemplo: `./montador.o -pp arquivo1 arquivo2 [...]`. Os arquivos gerados terão o nome do arquivo `.asm` original com `_pp` adicionado ao final (Ex.: `arquivo1_pp.asm`).
+
+## **Ligador**
 
 [aqui é onde a gente vai escrever depois o que fez nesse trabalho](https://github.com/auntduda)
