@@ -1,4 +1,4 @@
-# Software Baśico - 2023.1
+# Software Básico - 2023.1
 
 # Alunos
 
