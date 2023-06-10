@@ -1,13 +1,71 @@
 #include<bits/stdc++.h>
-#include "files.h"
-#include "tables.h"
 
 using namespace std;
 
-arquivoObjeto_t lerObjeto(string srtingArq) {
+typedef map<string, int> tdefinicao_t;
+typedef map<string,vector<int>> tuso_t;
+typedef enum tipoArquivo {EXC, OBJ} tipoArquivo;
+
+typedef struct arquivoSaida_t {
+	tipoArquivo tipoA;
+	vector<int> opcode;
+	arquivoSaida_t() {}
+	virtual void escreverNoArquivo(string arquivo) = 0;
+}arquivoSaida_t;
+
+typedef struct arquivoObjeto_t: arquivoSaida_t {
+	tuso_t tabelaUso;
+	tdefinicao_t tabelaDefinicao;
+	vector<int> enderecoRelativo;
+	void escreverNoArquivo(string arquivo)
+	{
+		stringstream ans;
+  
+		ans << "USO\n";
+		for (const auto &use : tabelaUso)
+		{
+			ans << use.first << " ";
+			for(const auto &elem : use.second)
+				ans << elem << " ";
+			ans << '\n';
+		}
+
+		ans << "DEF\n";
+		for (const auto &def : tabelaDefinicao)
+			ans << def.first << " " << def.second << '\n';
+
+		ans << "RELATIVOS\n";
+		for(const auto &elem : enderecoRelativo)
+			ans << elem << " ";
+		ans << '\n';
+
+		ans << "CODE\n";
+		for(const auto &elem : opcode)
+			ans << elem << " ";
+		ans << '\n';
+		
+		FILE *arq;
+		arq = fopen(arquivo.c_str(), "w+");
+		fputs(ans.str().c_str(), arq);
+		fclose(arq);
+	} 
+}arquivoObjeto_t;
+
+typedef struct executavel_t: arquivoSaida_t{
+		void escreverNoArquivo(string arquivo)
+		{
+			FILE *arq;
+			arq = fopen(arquivo.c_str(), "w+");
+			for (const int &byte : opcode)
+				fprintf(arq, "%d ", byte);
+			fclose(arq);
+		}
+}executavel_t;
+
+arquivoObjeto_t lerObjeto(string stringArq) {
 	arquivoObjeto_t arquivoObjeto;
 
-	const char *arquivo = srtingArq.c_str();
+	const char *arquivo = stringArq.c_str();
 	FILE *file = fopen(arquivo, "r");
 
 	if (!file)
@@ -51,12 +109,7 @@ arquivoObjeto_t lerObjeto(string srtingArq) {
 		} else if(id == "CODE")
 		{
 			flag = 3;
-		} else
-		{
-			cout << "Formato .obj incorreto.\n";
-		}
-		
-		if (flag == 0)
+		}else if (flag == 0)
 		{
 			tuso_t *uses = &arquivoObjeto.tabelaUso;
 			char *key = strtok_r(linha, " ", &linha);
@@ -82,9 +135,6 @@ arquivoObjeto_t lerObjeto(string srtingArq) {
 		{
 			while ((token = strtok_r(linha, " ", &linha)))
 				arquivoObjeto.opcode.push_back(atoi(token));
-		}else
-		{
-			cout << "Formato .obj incorreto.\n";
 		}
 	}
 	
