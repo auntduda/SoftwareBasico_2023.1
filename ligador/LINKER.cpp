@@ -81,6 +81,7 @@ arquivoObjeto_t lerObjeto(string stringArq) {
 	char orig[tamanhoArquivo + 1], *aux, *linha, *token;
 	size_t bytes_read = fread(orig, sizeof(char), tamanhoArquivo, file);
 
+
 	if (bytes_read != tamanhoArquivo)
 	{
 		printf("Erro na leitura do arquivo: <%s>.\n", arquivo);
@@ -164,6 +165,7 @@ int main(int argc, char **argv)
 
 		for (const auto &elem : objeto.tabelaDefinicao)
 			TGD[elem.first] = elem.second + fatorCorrecao;
+			
 
 		for (const auto &elem : objeto.tabelaUso)
 		{
