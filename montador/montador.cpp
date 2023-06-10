@@ -1,9 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <map>
-#include <cstring>
+#include <bits/stdc++.h>
 
 #include "helpers.h"
 #include "preprocessor.h"

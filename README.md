@@ -27,7 +27,7 @@ O projeto foi executado em ambos os SOs, e não houve erro de execução.
 ```
 g++ ./montador.cpp -o ./montador.o
 ```
-- Para rodar o montador basta executar o comando abaixo
+- Em seguida, basta executar o comando abaixo
 ```
 ./montador.o arquivo1 arquivo2 [...]
 ```
@@ -58,4 +58,4 @@ Caso deseje ligar mais `arquivos.obj`, é necessário chamá-los na linha de exe
 
 ### Disponibilização do Trabalho
 
-Caso a enterega corrompa os arquivos descritos acima, acesse [GitHub/Software Básico - 2023.1](https://github.com/auntduda/SoftwareBasico_2023.1) para verificar a funcionalidade do projeto.
+Caso a entrega corrompa os arquivos descritos acima, acesse [GitHub/Software Básico - 2023.1](https://github.com/auntduda/SoftwareBasico_2023.1) para verificar a funcionalidade do projeto.

@@ -1,9 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <limits>
-#include <vector>
+#include <bits/stdc++.h>
 
 #define MAX_SIZE numeric_limits<streamsize>::max()
 
