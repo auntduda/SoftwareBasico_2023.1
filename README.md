@@ -1,16 +1,29 @@
 # Software Baśico - 2023.1
 
-## Alunos
+# Alunos
 
 - Davi Jesus de Almeida Paturi - 200016784
 - Maria Eduarda Carvalho Santos - 190092556
 
-## Trabalho 1
+# Trabalho 1
 
 O trabalho 1 da disciplina de Software Básico consiste em desenvolver o montador e o ligador do assembly inventado, apresentado em aula. Utilizando a linguagem C++ de programação.
 
+## Versão do Compilador
+
+A versão utilizada para elaboração do trabalho foi dada pelo compilador GNU G++17 7.3.0 (C++17).
+
+## SO de Desenvolvimento
+
+O projeto foi desenvolvido em dois diferentes sistemas operacionais:
+
+- Ubuntu 22.04.2 LTS
+- Windows 10
+
+O projeto foi executado em ambos os SOs, e não houve erro de execução.
+
 ## **Montador**
-- Para compilar o montador basta executar o seguinte comando
+- Para compilar o montador, basta executar o seguinte comando
 ```
 g++ ./montador.cpp -o ./montador.o
 ```
@@ -29,4 +42,20 @@ Caso contrário, a saída será um arquivo `.exc`.
 
 ## **Ligador**
 
-[aqui é onde a gente vai escrever depois o que fez nesse trabalho](https://github.com/auntduda)
+Para compilar o ligador, basta executar a seguinte linhas de comando:
+
+```
+g++ LINKER.cpp -o l
+```
+
+Em seguida, basta executar a seguinte linha de comando, para executar as atividades do ligador, caso deseje ligar os arquivos `MOD_A.obj` e `MOD_B.obj`
+
+```
+./l MOD_A MOD_B
+```
+
+Caso deseje ligar mais `arquivos.obj`, é necessário chamá-los na linha de execução do ligador.
+
+### Disponibilização do Trabalho
+
+Caso a enterega corrompa os arquivos descritos acima, acesse [GitHub/Software Básico - 2023.1](https://github.com/auntduda/SoftwareBasico_2023.1) para verificar a funcionalidade do projeto.
